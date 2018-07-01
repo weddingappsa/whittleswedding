@@ -83,7 +83,7 @@ header {
     text-align: center;
     color: #fff;
     /*background: #18bc9c;*/
-    background: #800020;
+    background: #fff;
 }
 
 header .container {
@@ -183,7 +183,7 @@ section h2 {
 section.success {
     color: #fff;
     /*background: #18bc9c;*/
-    background: #00008B;
+    background: #800020; 
     
 }
 
