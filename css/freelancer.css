@@ -67,11 +67,11 @@ hr.star-light:after {
 }
 
 hr.star-primary {
-    border-color: #800020;
+    border-color: #fff;
 }
 
 hr.star-primary:after {
-    color: #800020;
+    color: #fff;
     background-color: #fff;
 }
 
@@ -183,7 +183,7 @@ section h2 {
 section.success {
     color: #fff;
     /*background: #18bc9c;*/
-    background: #800020; 
+    background: #fff; 
     
 }
 
@@ -193,7 +193,7 @@ section.success a:focus,
 section.success a:active,
 section.success a.active {
     outline: 0;
-    color: #800020;
+    color: #fff;
 }
 
 @media(max-width:767px) {
