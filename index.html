@@ -122,9 +122,10 @@ function myFunction() {
             
             console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
-            
-          ///////
-   var lambda = new AWS.Lambda({
+           
+            /////// 
+            AWS.config.credentials.refresh(function(){
+                var lambda = new AWS.Lambda({
                     region: 'us-east-1',
                     apiVersion: '2015-03-31'
                 });
@@ -148,7 +149,10 @@ function myFunction() {
                     }
 
                 });
+            });
           ///////
+   
+      
          }
     </script>
     </head>
