@@ -115,6 +115,16 @@ function myFunction() {
             
             AWS.config.update({region: 'us-east-1'});
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:0380bccc-e26c-4bab-947d-c3954ef2c740'});
+            
+            AWS.config.update({
+  region: 'us-east-1',
+  credentials: new AWS.CognitoIdentityCredentials({
+    AccountId: '509616446822', // your AWS account ID
+    RoleArn: 'arn:aws:iam::509616446822:role/Cognito_weddingappsaUnauth_Role',
+    IdentityPoolId: 'us-east-1:0380bccc-e26c-4bab-947d-c3954ef2c740'
+  })
+});
+
 
             var name = document.getElementById('name').value;
             var number = document.getElementById('phone').value;
@@ -142,7 +152,7 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us
                 /////
                 lambda.invoke(guestdata, function(error, data) {
                     if (error) {
-                        prompt(error);
+                        console.log(error);
                     } else {
                         returndata = JSON.parse(data.Payload);
 
