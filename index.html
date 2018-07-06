@@ -152,11 +152,11 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us
                 /////
                 lambda.invoke(guestdata, function(error, data) {
                     if (error) {
-                        console.log(error);
+                        alert(error);
                     } else {
                         returndata = JSON.parse(data.Payload);
 
-                        console.log(returndata);
+                        alert(returndata);
                     }
 
                 });
@@ -242,7 +242,7 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us
                 </div>
             </div>
         </div>
-                <div id="snackbar">Your message has been succesfully sent... Thank You:)!</div>
+<!--                 <div id="snackbar">Your message has been succesfully sent... Thank You:)!</div> -->
     </section>
             
             
