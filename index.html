@@ -118,6 +118,8 @@ function myFunction() {
             
            
             AWS.config.getCredentials();
+            AWS.config.credentials.refresh();
+
 
             var name = document.getElementById('name').value;
             var number = document.getElementById('phone').value;
