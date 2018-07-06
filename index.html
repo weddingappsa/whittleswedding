@@ -123,30 +123,36 @@ function myFunction() {
             console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
             
-            var lambda = new AWS.Lambda({region: 'us-east-1', apiVersion: '2015-03-31'});
-            // create JSON object for parameters for invoking Lambda function
-            var guestdata = {
-                FunctionName : 'WhittleWeddingForm',
-                InvocationType : 'RequestResponse',
-                LogType : 'None'
-            };
-            // create variable to hold data returned by the Lambda function
-            var returndata;
-            
-            /////
-            lambda.invoke(guestdata, function(error, data) {
-                if (error) {
-                    prompt(error);
-                } 
-                else {
-                    returndata = JSON.parse(data.Payload);
-                    
-                    console.log(returndata);
-                    
-                    myFunction();
-                }
-                
-            });
+          AWS.config.credentials.refresh((error) => {
+            if (error) {
+                console.error(error);
+            } else {
+                //invoke the lambda function 
+                var lambda = new AWS.Lambda({
+                    region: 'us-east-1',
+                    apiVersion: '2015-03-31'
+                });
+                // create JSON object for parameters for invoking Lambda function
+                var guestdata = {
+                    FunctionName: 'WhittleWeddingForm',
+                    InvocationType: 'RequestResponse',
+                    LogType: 'None'
+                };
+                // create variable to hold data returned by the Lambda function
+                var returndata;
+
+                /////
+                lambda.invoke(guestdata, function(error, data) {
+                    if (error) {
+                        prompt(error);
+                    } else {
+                        returndata = JSON.parse(data.Payload);
+
+                        console.log(returndata);
+                    }
+
+                });
+            }
             /////
          }
     </script>
