@@ -124,37 +124,30 @@ function myFunction() {
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
             
           ///////
-            AWS.config.credentials.refresh((error) => {
-    if (error) {
-        console.error(error);
-    } else {
-        var lambda = new AWS.Lambda({
-            region: 'us-east-1',
-            apiVersion: '2015-03-31'
-        });
-        // create JSON object for parameters for invoking Lambda function
-        var guestdata = {
-            FunctionName: 'WhittleWeddingForm',
-            InvocationType: 'RequestResponse',
-            LogType: 'None'
-        };
-        // create variable to hold data returned by the Lambda function
-        var returndata;
+   var lambda = new AWS.Lambda({
+                    region: 'us-east-1',
+                    apiVersion: '2015-03-31'
+                });
+                // create JSON object for parameters for invoking Lambda function
+                var guestdata = {
+                    FunctionName: 'WhittleWeddingForm',
+                    InvocationType: 'RequestResponse',
+                    LogType: 'None'
+                };
+                // create variable to hold data returned by the Lambda function
+                var returndata;
 
-        /////
-        lambda.invoke(guestdata, function(error, data) {
-            if (error) {
-                prompt(error);
-            } else {
-                returndata = JSON.parse(data.Payload);
+                /////
+                lambda.invoke(guestdata, function(error, data) {
+                    if (error) {
+                        prompt(error);
+                    } else {
+                        returndata = JSON.parse(data.Payload);
 
-                console.log(returndata);
-            }
+                        console.log(returndata);
+                    }
 
-        });
-    }
-
-});
+                });
           ///////
          }
     </script>
