@@ -113,15 +113,9 @@ function myFunction() {
     <script>
         function toLambda(objButton){
             
-            AWS.config.update({region: 'REGION'});
+            AWS.config.update({region: 'us-east-1'});
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:0380bccc-e26c-4bab-947d-c3954ef2c740'});
-AWS.config.update({
-    credentials: new AWS.CognitoIdentityCredentials({
-        AccountId: '509616509616446822',
-        RoleArn: 'arn:aws:iam::509616446822:role/Cognito_weddingappsaUnauth_Role',
-        IdentityPoolId: 'us-east-1:0380bccc-e26c-4bab-947d-c3954ef2c740'
-    })
-});
+
             var name = document.getElementById('name').value;
             var number = document.getElementById('phone').value;
             var message = document.getElementById('message').value;
@@ -238,8 +232,9 @@ AWS.config.update({
                 </div>
             </div>
         </div>
+                <div id="snackbar">Your message has been succesfully sent... Thank You:)!</div>
     </section>
-            <div id="snackbar">Your message has been succesfully sent... Thank You:)!</div>
+            
             
     
 </body>
