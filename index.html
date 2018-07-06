@@ -59,6 +59,9 @@ body, html {
     
     <script>
         function toLambda(objButton){
+            
+            AWS.config.update({region: 'us-east-1'});
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:0380bccc-e26c-4bab-947d-c3954ef2c740'});
             var name = document.getElementById('name').value;
             var number = document.getElementById('phone').value;
             var message = document.getElementById('message').value;
@@ -68,7 +71,31 @@ body, html {
             
             console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
-        }
+            
+            var lambda = new AWS.Lambda({region: 'us-east-1', apiVersion: '2015-03-31'});
+            // create JSON object for parameters for invoking Lambda function
+            var guestdata = {
+                FunctionName : 'WhittleWeddingForm',
+                InvocationType : 'RequestResponse',
+                LogType : 'None'
+            };
+            // create variable to hold data returned by the Lambda function
+            var returndata;
+            
+            /////
+            lambda.invoke(guestdata, function(error, data) {
+                if (error) {
+                    prompt(error);
+                } 
+                else {
+                    returndata = JSON.parse(data.Payload);
+                    
+                    console.log(returndata);
+                }
+                
+            });
+            /////
+         }
     </script>
     </head>
 <body>
