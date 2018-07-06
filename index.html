@@ -123,9 +123,8 @@ function myFunction() {
             console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
            
-            /////// 
-            AWS.config.credentials.refresh(function(){
-                var lambda = new AWS.Lambda({
+            //set the object
+            var lambda = new AWS.Lambda({
                     region: 'us-east-1',
                     apiVersion: '2015-03-31'
                 });
@@ -137,7 +136,9 @@ function myFunction() {
                 };
                 // create variable to hold data returned by the Lambda function
                 var returndata;
-
+            
+            /////// 
+            AWS.config.credentials.refresh(function(){
                 /////
                 lambda.invoke(guestdata, function(error, data) {
                     if (error) {
