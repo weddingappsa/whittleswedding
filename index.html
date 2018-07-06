@@ -58,22 +58,13 @@ body, html {
     <script src="js/freelancer.js"></script>
     
     <script>
-        function toLambda(){
+        function toLambda(objButton){
             var name = document.getElementById('name').value;
             var number = document.getElementById('phone').value;
             var message = document.getElementById('message').value;
+            var actualresponse = objButton.value;
             
-            var responseyes = document.getElementById("yesbutton").value;
-            var responseno = document.getElementById("nobutton").value;
-            var actualresponse;
             
-            if(responseyes === "Yes"){
-                
-                actualresponse = "Yes";
-               }
-            else{
-                actualresponse = "No";
-               }
             
             console.log(name + " says " + message + " and " + actualresponse + "for RSVP, the provided phone number is " + number);
             alert(name + " says " + message + " and " + actualresponse + "for RSVP, the provided phone number is " + number);
@@ -147,8 +138,8 @@ body, html {
                         <div id="success"></div>
                         <div class="row" style="text-align: center;">
                             <div class="form-group col-xs-12" style="text-align: center;">
-                                <button type="submit" class="btn btn-default btn-lg" style="background-color: #800020;" onclick="toLambda();" value="Yes" id="yesbutton">Yes</button>
-                                <button type="submit" class="btn btn-default btn-lg" style="background-color: #fdd9d2;" onclick="toLambda();" value="No" id="nobutton">No</button>
+                                <button type="submit" class="btn btn-default btn-lg" style="background-color: #800020;" onclick="toLambda(this);" value="Yes">Yes</button>
+                                <button type="submit" class="btn btn-default btn-lg" style="background-color: #fdd9d2;" onclick="toLambda(this);" value="No">No</button>
                             </div>
                         </div>
                     </form>
