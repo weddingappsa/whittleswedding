@@ -112,13 +112,14 @@ function myFunction() {
     
     <script>
         function toLambda(objButton){
-            
+            AWS.config.credentials.clearCachedId();
             AWS.config.update({region: 'us-east-1'});
             AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:0380bccc-e26c-4bab-947d-c3954ef2c740'});
             
-           
+            
             AWS.config.getCredentials();
             AWS.config.credentials.refresh();
+            
 
 
             var name = document.getElementById('name').value;
