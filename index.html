@@ -91,7 +91,13 @@ function myFunction() {
             console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
             var payload = name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number;
+            console.log("The Payload", payload);
+            
             var payloadstring = JSON.stringify(payload);
+            console.log("The Payload string", payloadstring);
+            
+            var payloadjson = JSON.parse(payloadstring);
+            console.log("The Payload json", payloadjson);
             
             var lambda = new AWS.Lambda({
                     region: 'us-east-1',
@@ -101,7 +107,7 @@ function myFunction() {
                 var guestdata = {
                     FunctionName: 'WhittleWeddingForm',
                     InvocationType: 'RequestResponse',
-                    Payload: new Buffer(payloadstring),
+                    Payload: payloadjson,
                     LogType: 'None'
                 };
                 // create variable to hold data returned by the Lambda function
