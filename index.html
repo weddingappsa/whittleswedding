@@ -110,6 +110,7 @@ function myFunction() {
     var x = document.getElementById("snackbar");
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    document.getElementById("infoform").reset();
 }
 </script>
     
@@ -220,7 +221,7 @@ function myFunction() {
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
 <!--                     <form name="sentMessage" id="contactForm" novalidate> -->
-                    <form>
+                    <form id="infoform">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name</label>
