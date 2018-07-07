@@ -91,12 +91,18 @@ function myFunction() {
             console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
 //             alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
            
-            var payloadjson = {
+            var payload = {
                 name: name,
                 message: message,
                 yesorno: actualresponse,
                 number: number
             }
+            
+            console.log("The Payload before", payload);
+            
+            var payloadjson = JSON.stringify(payload);
+            
+            console.log("The Payload After", payloadjson);
             
             var lambda = new AWS.Lambda({
                     region: 'us-east-1',
