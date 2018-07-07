@@ -112,6 +112,10 @@ function myFunction() {
                         returndata = JSON.parse(data.Payload);
 
                         alert(returndata);
+                        
+                        var log = JSON.stringify(returndata);
+                        
+                        console.log(log);
                     }
 
                 });
