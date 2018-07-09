@@ -134,7 +134,7 @@ function myFunction() {
             
             //console.log(AWS.config.credentials);
             
-            console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
+            //console.log(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
            // alert(name + " says " + message + " and " + actualresponse + " for RSVP, the provided phone number is " + number);
            
             var payload = {
@@ -144,7 +144,10 @@ function myFunction() {
                 number: number
             }
             
-           if(name === "" || number === "" || message === "" ){alert("Your messages was not sent, please complete all sections of the form before selecting Yes or No."; return;);}
+           if(name === "" || number === "" || message === "" ){
+                alert("Your messages was not sent, please complete all sections of the form before selecting Yes or No.");
+                return;
+           }
            //console.log("The Payload before", payload);
             
             var payloadjson = JSON.stringify(payload);
