@@ -144,9 +144,7 @@ function myFunction() {
                 number: number
             }
             
-            if(name === " "){
-                alert("Empty!!!")   
-            }if(name === "" ){alert("very Empty!");}
+           if(name === "" || number === "" || message === "" ){alert("Your messages was not sent, please complete all sections of the form before selecting Yes or No."; return;);}
            //console.log("The Payload before", payload);
             
             var payloadjson = JSON.stringify(payload);
